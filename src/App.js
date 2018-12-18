@@ -3,77 +3,122 @@ import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 
-const API_KEY = "f25f61d55928458a34ca38362cc30e60";
+import LatLong from "./components/LatLong";
+import DisplayTemp from "./components/DisplayTemp";
+import OpenWeatherAPI from "./components/OpenWeatherAPI";
+
+const secrets = require("./secrets.json");
+
+const API_KEY = secrets.KEY;
 
 class App extends React.Component {
-  state = {
-    temperature: undefined,
-    city: undefined,
-    country: undefined,
-    humidity: undefined,
-    description: undefined,
-    error: undefined
-  };
+    constructor(props) {
+        super(props);
+        this.state = {
+            Lat: "",
+            Long: "",
+            Temp: "Loading"
+        };
+        this.onPass = this.onPass.bind(this);
+    }
+    onPass(Lat, Long) {
+        var that = this;
+        OpenWeatherAPI.getTemp(Lat, Long).then(
+            function(data) {
+                that.setState({
+                    Lat: Lat,
+                    Long: Long,
+                    Temp: data.main.temp,
+                    Name: data.name,
+                    Humidity: data.main.humidity
+                });
+            },
+            function(errorMessage) {
+                alert(errorMessage);
+            }
+        );
+    }
 
-  getWeather = async e => {
-    e.preventDefault();
-    const city = e.target.elements.city.value;
-    const country = e.target.elements.country.value;
-
-    const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`
-    );
-    const data = await api_call.json();
-
-    try {
-      if (city && country) {
-        this.setState({
-          temperature: data.main.temp,
-          city: data.name,
-          country: data.sys.country,
-          humidity: data.main.humidity,
-          description: data.weather[0].description,
-          error: ""
-        });
-      } else {
-        this.setState({
-          temperature: undefined,
-          city: undefined,
-          country: undefined,
-          humidity: undefined,
-          description: undefined,
-          error: "Please enter the values."
-        });
-      }
-    } catch (e) {
-      console.log(e);
-      this.setState({
+    state = {
         temperature: undefined,
         city: undefined,
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: "Incorrect city or country name"
-      });
-    }
-  };
+        error: undefined,
+        Lat: "",
+        Long: "",
+        Humidity: "",
+        Temp: "Loading"
+    };
 
-  render() {
-    return (
-      <div>
-        <Titles />
-        <Form getWeather={this.getWeather} />
-        <Weather
-          temperature={this.state.temperature}
-          humidity={this.state.humidity}
-          city={this.state.city}
-          country={this.state.country}
-          description={this.state.description}
-          error={this.state.error}
-        />
-      </div>
-    );
-  }
+    getWeather = async e => {
+        e.preventDefault();
+        const city = e.target.elements.city.value;
+        const country = e.target.elements.country.value;
+
+        const api_call = await fetch(
+            `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`
+        );
+        const data = await api_call.json();
+
+        try {
+            if (city && country) {
+                this.setState({
+                    temperature: data.main.temp,
+                    city: data.name,
+                    country: data.sys.country,
+                    humidity: data.main.humidity,
+                    description: data.weather[0].description,
+                    error: ""
+                });
+            } else {
+                this.setState({
+                    temperature: undefined,
+                    city: undefined,
+                    country: undefined,
+                    humidity: undefined,
+                    description: undefined,
+                    error: "Please enter the values."
+                });
+            }
+        } catch (e) {
+            console.log(e);
+            this.setState({
+                temperature: undefined,
+                city: undefined,
+                country: undefined,
+                humidity: undefined,
+                description: undefined,
+                error: "Incorrect city or country name"
+            });
+        }
+    };
+
+    render() {
+        return (
+            <div>
+                <LatLong onPass={this.onPass} />
+                <DisplayTemp
+                    Temp={this.state.Temp}
+                    Name={this.state.Name}
+                    Lat={this.state.Lat}
+                    Long={this.state.Long}
+                    Humidity={this.state.Humidity}
+                />
+                <Titles />
+                <Form getWeather={this.getWeather} />
+                <Weather
+                    temperature={this.state.temperature}
+                    humidity={this.state.humidity}
+                    city={this.state.city}
+                    country={this.state.country}
+                    description={this.state.description}
+                    error={this.state.error}
+                />
+            </div>
+        );
+    }
 }
 
 export default App;
