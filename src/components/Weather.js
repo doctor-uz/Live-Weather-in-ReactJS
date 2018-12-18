@@ -1,7 +1,7 @@
 import React from "react";
 
 const Weather = props => (
-    <div className="display">
+    <div className="display1">
         {props.city && props.country && (
             <p className="weather__key">
                 {" "}
@@ -16,7 +16,10 @@ const Weather = props => (
             <p className="weather__key">
                 {" "}
                 Temperature:
-                <span className="weather__value"> {props.temperature} </span>
+                <span className="weather__value">
+                    {" "}
+                    {props.temperature} &#8451;
+                </span>
             </p>
         )}
         {props.humidity && (

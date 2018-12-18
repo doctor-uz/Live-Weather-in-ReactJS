@@ -61,6 +61,10 @@ class App extends React.Component {
             `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`
         );
         const data = await api_call.json();
+        console.log(
+            "app.js data.weather[0].description ",
+            data.weather[0].description
+        );
 
         try {
             if (city && country) {
