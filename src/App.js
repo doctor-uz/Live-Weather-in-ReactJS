@@ -17,7 +17,8 @@ class App extends React.Component {
         this.state = {
             Lat: "",
             Long: "",
-            Temp: "Loading"
+            Temp: "Loading",
+            imgUrl: "../public/mist.jpg"
         };
         this.onPass = this.onPass.bind(this);
     }
@@ -39,19 +40,6 @@ class App extends React.Component {
         );
     }
 
-    state = {
-        temperature: undefined,
-        city: undefined,
-        country: undefined,
-        humidity: undefined,
-        description: undefined,
-        error: undefined,
-        Lat: "",
-        Long: "",
-        Humidity: "",
-        Temp: "Loading"
-    };
-
     getWeather = async e => {
         e.preventDefault();
         const city = e.target.elements.city.value;
@@ -61,10 +49,16 @@ class App extends React.Component {
             `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`
         );
         const data = await api_call.json();
-        console.log(
-            "app.js data.weather[0].description ",
-            data.weather[0].description
-        );
+        console.log("app.js data.weather[0].description ", data.weather[0]);
+
+        if (data.weather[0].icon == "04d") {
+            document.getElementById("app").style.backgroundImage =
+                "url('../public/mist.jpg')";
+        } else {
+            console.log("False");
+        }
+
+        // console.log(data.weather[0].icon);
 
         try {
             if (city && country) {
@@ -101,7 +95,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id="app" style={this.divStyle}>
                 <LatLong onPass={this.onPass} />
                 <DisplayTemp
                     Temp={this.state.Temp}
