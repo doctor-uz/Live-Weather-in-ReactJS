@@ -131,7 +131,11 @@ class App extends React.Component {
                 data.weather[0].icon == "09n"
             ) {
                 document.getElementById("app").style.backgroundImage =
-                    "url('/shower_rain.jpg')";
+                    "url('/beach-clouds-dark.jpg')";
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.add("rain");
             } else if (
                 data.weather[0].icon == "11d" ||
                 data.weather[0].icon == "11n"
