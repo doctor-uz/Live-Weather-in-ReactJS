@@ -51,7 +51,7 @@ class App extends React.Component {
         const data = await api_call.json();
         // console.log("app.js data.weather[0].description ", data.weather[0]);
 
-        // console.log(data.weather[0].icon);
+        console.log(data.weather[0].icon);
 
         try {
             if (city && country) {
@@ -137,11 +137,25 @@ class App extends React.Component {
                     .querySelector("#content")
                     .classList.add("rain");
             } else if (
+                data.weather[0].icon == "10d" ||
+                data.weather[0].icon == "10n"
+            ) {
+                document.getElementById("app").style.backgroundImage =
+                    "url('/beach-clouds-dark.jpg')";
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.add("rain");
+            } else if (
                 data.weather[0].icon == "11d" ||
                 data.weather[0].icon == "11n"
             ) {
                 document.getElementById("app").style.backgroundImage =
                     "url('/thunderstorm.jpg')";
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.add("thunderstorm");
             } else if (
                 data.weather[0].icon == "13d" ||
                 data.weather[0].icon == "13n"
