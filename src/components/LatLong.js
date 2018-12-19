@@ -18,7 +18,7 @@ class LatLong extends Component {
                 });
                 that.props.onPass(that.state.Lat, that.state.Long);
             },
-            function(error) {},
+            function() {},
             { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
         );
     }

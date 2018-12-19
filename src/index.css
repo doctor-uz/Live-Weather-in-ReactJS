@@ -15,40 +15,89 @@ code {
 }
 
 #app {
+    position: absolute;
     background: url("/alp.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 1000px;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    height: 100vh;
+    z-index: -1;
 }
+
+#content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* background: url("/cloud.png");
+    animation: animate 60s linear infinite; */
+    z-index: -1;
+}
+
+.cloud {
+    background: url("/cloud.png");
+    animation: cloud 60s linear infinite;
+}
+
+@keyframes cloud {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: 5440px;
+    }
+}
+
+.clear_sky {
+    background: url("/clear_sky.jpg");
+    background-size: cover;
+    /* animation: clear_sky 60s linear infinite; */
+}
+
+/* @keyframes clear_sky {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: 5440px;
+    }
+} */
 
 .display-weather {
     height: 250px;
-    box-shadow: inset 20px 20px 400px skyblue;
+    box-shadow: inset 80px 80px 400px white;
     border-radius: 20px;
     background: no-repeat center center fixed;
-    background-size: cover;
-    padding: 20px 20px;
+    /* background-color: gray; */
+    /* background-size: cover; */
+    /* padding: 20px 20px; */
     width: 500px;
     text-align: center;
     font-size: 24px;
     color: white;
+
     margin-left: 26%;
+    /* z-index: 10px; */
 }
 
 #cityName {
     font-size: 50px;
     font-weight: bold;
+    color: black;
+}
+
+.humidity {
+    font-size: 25px;
+    color: black;
 }
 
 .title {
     margin-left: 2%;
     font-size: 20px;
-    color: white;
+    color: black;
 }
 
 form {
@@ -83,9 +132,16 @@ button:hover {
     margin-left: 35%;
 }
 
+.forecast-title {
+    box-shadow: inset 20px 20px 100px white;
+    width: 300px;
+    border-radius: 15px;
+    text-align: center;
+}
+
 .display1 {
     margin-left: 35%;
-    box-shadow: inset 20px 20px 400px skyblue;
+    box-shadow: inset 40px 40px 400px white;
     border-radius: 20px;
     background: no-repeat center center fixed;
     background-size: cover;
@@ -93,8 +149,9 @@ button:hover {
 }
 
 .weather__key {
-    color: white;
+    color: black;
     font-size: 24px;
+    opacity: 0.9;
     width: 300px;
     text-align: center;
 }

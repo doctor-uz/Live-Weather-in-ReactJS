@@ -11,12 +11,15 @@ class DisplayTemp extends Component {
             var Long = Math.round(Long);
             return (
                 <div className="display-weather">
-                    <p>
-                        It is {Temp} &#8451; at <br />
+                    <p className="humidity">
+                        It is <span id="cityName"> {Temp} &#8451; </span> at{" "}
+                        <br />
                         <span id="cityName">{Name}</span>
                     </p>
-                    Latitude: {Lat} and Longitude: {Long}
-                    <p>Humidity: {Humidity}</p>
+                    <p className="humidity">
+                        Latitude: {Lat} and Longitude: {Long}
+                    </p>
+                    <p className="humidity">Humidity: {Humidity}</p>
                 </div>
             );
         }
