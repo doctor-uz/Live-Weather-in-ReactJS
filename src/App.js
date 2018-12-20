@@ -17,8 +17,7 @@ class App extends React.Component {
         this.state = {
             Lat: "",
             Long: "",
-            Temp: "Loading",
-            imgUrl: "../public/mist.jpg"
+            Temp: "Loading"
         };
         this.onPass = this.onPass.bind(this);
     }
