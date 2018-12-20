@@ -35,44 +35,10 @@ code {
     z-index: -1;
 }
 
-/* THUNDERSTORM */
-.thunderstorm {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    animation: lighting2 4s linear infinite;
-    opacity: 0;
+.clear_sky {
+    background: url("/clear_sky.jpg");
+    background-size: cover;
 }
-
-@keyframes lighting2 {
-    0% {
-        opacity: 0;
-    }
-    10% {
-        opacity: 0;
-    }
-    11% {
-        opacity: 1;
-    }
-    14% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 0;
-    }
-    21% {
-        opacity: 1;
-    }
-    24% {
-        opacity: 0;
-    }
-    104% {
-        opacity: 0;
-    }
-}
-
 /* RAIN */
 .rain {
     /* height: 1000px; */
@@ -82,14 +48,31 @@ code {
     animation: rain 0.4s linear infinite;
 }
 
-.rain:before {
-    content: "";
-    position: absolute;
+.snow {
+    background: url("/snow.png");
+    background-repeat: repeat;
+    opacity: 0.4;
     width: 100%;
-    height: 100%;
-    background: #fff;
-    animation: lighting 4s linear infinite;
-    opacity: 0;
+    height: 700px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: snowing 10s infinite linear;
+}
+
+/*CLOUDS*/
+.cloud {
+    background: url("/cloud.png");
+    animation: cloud 60s linear infinite;
+}
+
+@keyframes snowing {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100px 700px;
+    }
 }
 
 @keyframes rain {
@@ -97,42 +80,11 @@ code {
         background-position: 0% 0%;
     }
     100% {
-        background-position: 100% 100%;
-    }
-}
-
-@keyframes lighting {
-    0% {
-        opacity: 0;
-    }
-    10% {
-        opacity: 0;
-    }
-    11% {
-        opacity: 1;
-    }
-    14% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 0;
-    }
-    21% {
-        opacity: 1;
-    }
-    24% {
-        opacity: 0;
-    }
-    104% {
-        opacity: 0;
+        background-position: 10% 100%;
     }
 }
 
 /* CLOD */
-.cloud {
-    background: url("/cloud.png");
-    animation: cloud 60s linear infinite;
-}
 
 @keyframes cloud {
     0% {
@@ -141,11 +93,6 @@ code {
     100% {
         background-position: 5440px;
     }
-}
-
-.clear_sky {
-    background: url("/clear_sky.jpg");
-    background-size: cover;
 }
 
 .display-weather {
