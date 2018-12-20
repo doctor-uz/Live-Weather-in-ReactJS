@@ -96,6 +96,18 @@ class App extends React.Component {
                 document
                     .getElementById("app")
                     .querySelector("#content")
+                    .classList.remove("rain");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("snow");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("cloud");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
                     .classList.add("clear_sky");
             } else if (
                 data.weather[0].icon === "02d" ||
@@ -103,6 +115,20 @@ class App extends React.Component {
             ) {
                 document.getElementById("app").style.backgroundImage =
                     "url('/few_clouds.jpg')";
+
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("rain");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("snow");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("clear_sky");
+
                 document
                     .getElementById("app")
                     .querySelector("#content")
@@ -113,6 +139,20 @@ class App extends React.Component {
             ) {
                 document.getElementById("app").style.backgroundImage =
                     "url('/scattered_clouds.jpg')";
+
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("rain");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("snow");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("clear_sky");
+
                 document
                     .getElementById("app")
                     .querySelector("#content")
@@ -123,6 +163,20 @@ class App extends React.Component {
             ) {
                 document.getElementById("app").style.backgroundImage =
                     "url('/broken_clouds.jpg')";
+
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("rain");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("snow");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("clear_sky");
+
                 document
                     .getElementById("app")
                     .querySelector("#content")
@@ -133,6 +187,20 @@ class App extends React.Component {
             ) {
                 document.getElementById("app").style.backgroundImage =
                     "url('/beach-clouds-dark.jpg')";
+
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("cloud");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("snow");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("clear_sky");
+
                 document
                     .getElementById("app")
                     .querySelector("#content")
@@ -143,6 +211,20 @@ class App extends React.Component {
             ) {
                 document.getElementById("app").style.backgroundImage =
                     "url('/beach-clouds-dark.jpg')";
+
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("cloud");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("snow");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("clear_sky");
+
                 document
                     .getElementById("app")
                     .querySelector("#content")
@@ -153,6 +235,20 @@ class App extends React.Component {
             ) {
                 document.getElementById("app").style.backgroundImage =
                     "url('/thunderstorm.jpg')";
+
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("cloud");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("snow");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("clear_sky");
+
                 document
                     .getElementById("app")
                     .querySelector("#content")
@@ -163,10 +259,20 @@ class App extends React.Component {
             ) {
                 document.getElementById("app").style.backgroundImage =
                     "url('/snow.jpg')";
+
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("cloud");
                 document
                     .getElementById("app")
                     .querySelector("#content")
                     .classList.remove("rain");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("clear_sky");
+
                 document
                     .getElementById("app")
                     .querySelector("#content")
@@ -177,6 +283,20 @@ class App extends React.Component {
             ) {
                 document.getElementById("app").style.backgroundImage =
                     "url('/mist.jpg')";
+
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("rain");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("snow");
+                document
+                    .getElementById("app")
+                    .querySelector("#content")
+                    .classList.remove("clear_sky");
+
                 document
                     .getElementById("app")
                     .querySelector("#content")
