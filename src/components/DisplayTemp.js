@@ -5,7 +5,12 @@ class DisplayTemp extends Component {
         var { Temp, Name, Lat, Long, Humidity } = this.props;
         // console.log("Humiditi: ", this.props);
         if (Temp === "Loading") {
-            return <div className="loading">Loading Your Local Weather...</div>;
+            return (
+                <div className="loading">
+                    <img id="loading" src="./loading.gif" />
+                    <p>Loading Your Local Weather...</p>
+                </div>
+            );
         } else {
             var Lat = Math.round(Lat);
             var Long = Math.round(Long);

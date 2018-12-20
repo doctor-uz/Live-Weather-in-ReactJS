@@ -14,6 +14,14 @@ code {
         monospace;
 }
 
+#loading {
+    /* opacity: 0.5; */
+    margin-left: 95px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
 #app {
     position: absolute;
     background: url("/alp.jpg") no-repeat center center fixed;
@@ -184,4 +192,12 @@ button:hover {
     color: red;
     font-size: 24px;
     margin-left: 20px;
+}
+
+.loading {
+    color: white;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 587px;
+    margin-bottom: 70px;
 }
