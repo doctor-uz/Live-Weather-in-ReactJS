@@ -8,7 +8,7 @@ class DisplayTemp extends Component {
             return (
                 <div className="loading">
                     <img id="loading" src="./loading.gif" />
-                    <p>Loading Your Local Weather...</p>
+                    <p>Loading your local weather...</p>
                 </div>
             );
         } else {

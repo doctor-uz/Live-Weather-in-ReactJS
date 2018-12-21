@@ -53,7 +53,7 @@ class App extends React.Component {
         const data = await api_call.json();
         // console.log("app.js data.weather[0].description ", data.weather[0]);
 
-        console.log("data from api ", data);
+        // console.log("data from api ", data);
         // console.log("data.sys.country ", data.sys.country);
 
         try {
